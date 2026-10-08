@@ -1,21 +1,25 @@
+
+
 import Image from 'next/image';
 import React from 'react';
+import Navlinks from './NavLinks';
+
 
 const Header = () => {
 
-   const date = new Date().toLocaleDateString("bn-BD", {
-  dateStyle: "full",
-});
+    {/*const date = new Date().toLocaleDateString("bn-BD", {
+        dateStyle: "full",
+    });*/}
 
     return (
-        <header className="border-t-2">
-        <div className="container mx-auto relative h-20 flex items-center px-8 py-3 border-b">
+        <header>
+        <div className="flex items-center px-8 py-3 border-b">
 
             <div className="flex items-center gap-2">
                 <Image
                     height={50}
                     width={50}
-                    src={`/logo-icon.png`}
+                    src="/logo-icon.png"
                     alt="bazardor"
                 />
 
@@ -25,12 +29,11 @@ const Header = () => {
                     </h2>
 
                     <p className="text-xs text-gray-500">
-                        {date}
+                       {/*{date}*/} 
                     </p>
                 </div>
             </div>
 
-            {/* Buttons - Right */}
             <div className="ml-auto flex gap-2">
                 <button className="btn btn-ghost">
                     সাইন ইন
@@ -43,6 +46,7 @@ const Header = () => {
 
         </div>
 
+        <Navlinks/>
         </header>
     );
 };

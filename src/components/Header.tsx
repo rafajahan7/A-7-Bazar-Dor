@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Navlinks from './NavLinks';
+import Link from 'next/link';
 
 
 const Header = () => {
@@ -35,13 +36,13 @@ const Header = () => {
             </div>
 
             <div className="ml-auto flex gap-2">
-                <button className="btn btn-ghost">
+                <Link href={'/sign-in'}><button className="btn btn-ghost">
                     সাইন ইন
-                </button>
+                </button></Link>
 
-                <button className="btn bg-green-700 text-white">
+                <Link href={'/sign-up'}><button className="btn bg-green-700 text-white">
                     সাইন আপ
-                </button>
+                </button></Link>
             </div>
 
         </div>

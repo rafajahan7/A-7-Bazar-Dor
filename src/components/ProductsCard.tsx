@@ -40,7 +40,7 @@ export default function ProductsCard({
 
   return (
     <Link
-      href={`/products/${product.id}`}
+      href={`/product/${product.slug}`}
       className="block h-full"
     >
       <div className="card h-full border border-base-200 bg-base-100 shadow-sm transition hover:shadow-md">

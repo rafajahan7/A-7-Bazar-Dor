@@ -8,7 +8,7 @@ const Banner = () => {
             <div className="card bg-base-100 border border-base-200 shadow-sm max-w-6xl mx-auto">
                 <div className="card-body flex flex-col md:flex-row items-center justify-between gap-6 p-6 md:p-8">
 
-                    {/* Left side: Text and button */}
+                    
                     <div className="flex-1 text-center md:text-left">
                         <span className="badge badge-success badge-outline mb-3">
                             বাজারদর • প্রতিদিনের আপডেট
@@ -33,7 +33,7 @@ const Banner = () => {
                         </div>
                     </div>
 
-                    {/* Right side: Banner image */}
+                    
                     <div className="flex-1 flex justify-center items-center">
                         <Image
                             src="/bazar-hero.png"

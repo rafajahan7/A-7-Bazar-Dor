@@ -1,5 +1,7 @@
 
-import { Suspense } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductsCard";
 
 type Product = {
@@ -24,26 +26,60 @@ type Product = {
 const API_URL =
   "https://api.abcz.workers.dev/api/bazardor/products";
 
-async function ProductSectionsContent() {
-  let products: Product[] = [];
+export default function ProductSections() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  try {
-    const response = await fetch(API_URL, {
-      cache: "no-store",
-    });
+  useEffect(() => {
+    let active = true;
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch products");
+    async function getProducts() {
+      try {
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        const result = await response.json();
+
+        const data: Product[] = Array.isArray(result)
+          ? result
+          : result.products ?? result.data ?? [];
+
+        if (active) {
+          setProducts(data);
+        }
+      } catch (err) {
+        console.error("Product API error:", err);
+
+        if (active) {
+          setError(true);
+        }
+      } finally {
+        if (active) {
+          setLoading(false);
+        }
+      }
     }
 
-    const result = await response.json();
+    getProducts();
 
-    products = Array.isArray(result)
-      ? result
-      : result.products ?? result.data ?? [];
-  } catch (error) {
-    console.error("Product API error:", error);
+    return () => {
+      active = false;
+    };
+  }, []);
 
+  if (loading) {
+    return (
+      <p className="mx-auto max-w-6xl px-4 py-8 text-gray-500">
+        পণ্যের তথ্য লোড হচ্ছে...
+      </p>
+    );
+  }
+
+  if (error) {
     return (
       <p className="mx-auto max-w-6xl px-4 py-8 text-red-600">
         পণ্যের তথ্য লোড করা যায়নি। আবার চেষ্টা করুন।
@@ -63,7 +99,6 @@ async function ProductSectionsContent() {
 
   return (
     <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
-      {/* Products with increased prices */}
       <section>
         <h2 className="mb-4 text-lg font-bold sm:text-xl">
           <span className="text-red-500">▲</span>{" "}
@@ -77,7 +112,6 @@ async function ProductSectionsContent() {
         </div>
       </section>
 
-      {/* Products with decreased prices */}
       <section>
         <h2 className="mb-4 text-lg font-bold sm:text-xl">
           <span className="text-green-600">▼</span>{" "}
@@ -91,7 +125,6 @@ async function ProductSectionsContent() {
         </div>
       </section>
 
-      {/* All products */}
       <section id="সব-পণ্য" className="scroll-mt-6">
         <h2 className="text-lg font-bold sm:text-xl">
           সব পণ্য
@@ -108,20 +141,6 @@ async function ProductSectionsContent() {
         </div>
       </section>
     </div>
-  );
-}
-
-export default function ProductSections() {
-  return (
-    <Suspense
-      fallback={
-        <p className="mx-auto max-w-6xl px-4 py-8 text-gray-500">
-          পণ্যের তথ্য লোড হচ্ছে...
-        </p>
-      }
-    >
-      <ProductSectionsContent />
-    </Suspense>
   );
 }
 

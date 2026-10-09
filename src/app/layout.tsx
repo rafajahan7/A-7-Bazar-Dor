@@ -9,6 +9,7 @@ import Marquee from "@/components/Marquee";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/components/Footer";
+import ToastProvider from "@/components/ToastProvider";
 
 const notoSerifBengali = Noto_Serif_Bengali({
     subsets: ["latin", "bengali"],
@@ -37,6 +38,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           autoClose={3000}
           theme="colored"
         />
+        <body className="min-h-screen flex flex-col">
+  <ToastProvider />
+  <Header />
+  {children}
+</body>
         <Footer/>
       </body>
     </html>

@@ -72,8 +72,7 @@ export default async function CategoryPage({
     );
   }
 
-  // Keep only products belonging to this category.
-  // This also handles APIs that ignore the category query.
+  
   products = products.filter(
     (product) => product.category === slug
   );

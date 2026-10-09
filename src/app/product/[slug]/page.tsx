@@ -89,7 +89,7 @@ export default async function ProductDetailsPage({
       ? Math.max(...markets.map((market) => market.max))
       : product.today;
 
-  // Average of the midpoint of each market's price range
+
   const averagePrice =
     markets.length > 0
       ? Math.round(
@@ -102,7 +102,7 @@ export default async function ProductDetailsPage({
 
   return (
     <main className="mx-auto max-w-6xl space-y-8 px-4 py-8">
-      {/* Product summary */}
+      
       <section className="rounded-2xl border bg-white p-6 shadow-sm">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
           <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gray-100 text-4xl">
@@ -138,7 +138,7 @@ export default async function ProductDetailsPage({
         </div>
       </section>
 
-      {/* Price summary */}
+     
       <section>
         <h2 className="mb-4 text-xl font-bold">
           আজকের দামের সারসংক্ষেপ
@@ -168,7 +168,7 @@ export default async function ProductDetailsPage({
         </div>
       </section>
 
-      {/* Market prices */}
+      
       <section>
         <div className="mb-4">
           <h2 className="text-xl font-bold">

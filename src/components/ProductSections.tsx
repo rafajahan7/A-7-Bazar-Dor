@@ -48,20 +48,20 @@ return ( <p className="mx-auto max-w-6xl px-4 py-8 text-red-600">
 );
 }
 
-// Section A: Biggest price increases
+
 const increased = products
 .filter((product) => product.change?.dir === "up")
 .sort((a, b) => b.change.pct - a.change.pct)
 .slice(0, 6);
 
-// Section B: Biggest price decreases
+
 const decreased = products
 .filter((product) => product.change?.dir === "down")
 .sort((a, b) => a.change.pct - b.change.pct)
 .slice(0, 6);
 
 return ( <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
-{/* Section A */} <section> <h2 className="mb-4 text-lg font-bold sm:text-xl"> <span className="text-red-500">▲</span>{" "}
+ <section> <h2 className="mb-4 text-lg font-bold sm:text-xl"> <span className="text-red-500">▲</span>{" "}
 আজ দাম বেড়েছে </h2>
 
     <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -71,7 +71,7 @@ return ( <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:px-6 lg
     </div>
   </section>
 
-  {/* Section B */}
+  
   <section>
     <h2 className="mb-4 text-lg font-bold sm:text-xl">
       <span className="text-green-600">▼</span>{" "}
@@ -85,7 +85,7 @@ return ( <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:px-6 lg
     </div>
   </section>
 
-  {/* Section C */}
+  
   <section id="সব-পণ্য" className="scroll-mt-6">
     <h2 className="text-lg font-bold sm:text-xl">
       সব পণ্য

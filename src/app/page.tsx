@@ -6,7 +6,7 @@ import ProductSections from "@/components/ProductSections";
 export default function Home() {
   return (
  <div>
-     <Marquee/>
+     
      <Banner/>
      <ProductSections />
  </div>

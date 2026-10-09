@@ -45,7 +45,7 @@ const SignUpPage = () => {
       }
 
       toast.success("অ্যাকাউন্ট তৈরি হয়েছে! এবার লগইন করুন।");
-      router.push("/login");
+      router.push("/sign-in");
     } catch {
       toast.error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
     } finally {
@@ -188,11 +188,11 @@ const SignUpPage = () => {
             <p className="mt-4 text-center text-sm">
               অ্যাকাউন্ট আছে?{" "}
               <Link
-                href="/login"
-                className="link link-success font-semibold"
-              >
-                সাইন ইন করুন
-              </Link>
+  href="/sign-in"
+  className="link link-success font-semibold"
+>
+  সাইন ইন করুন
+</Link>
             </p>
           </div>
         </div>

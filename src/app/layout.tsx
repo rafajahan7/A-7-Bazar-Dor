@@ -1,3 +1,6 @@
+import dns from "dns/promises";
+
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 import type { Metadata } from "next";
 import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";

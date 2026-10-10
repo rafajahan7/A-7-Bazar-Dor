@@ -1,4 +1,4 @@
-"use client";
+
 
 import Image from "next/image";
 import Link from "next/link";
@@ -24,21 +24,23 @@ return ( <header className="w-full"> <div className="mx-auto flex max-w-6xl item
       </div>
     </div>
 
-    <div className="ml-auto flex shrink-0 gap-2">
-      <Link
-        href="/sign-in"
-        className="btn btn-ghost btn-sm sm:btn-md"
-      >
-        সাইন ইন
-      </Link>
+    
+<div className="ml-auto flex shrink-0 gap-2">
+  <Link
+    href="/sign-in"
+    className="btn btn-ghost btn-sm sm:btn-md"
+  >
+    সাইন ইন
+  </Link>
 
-      <Link
-        href="/sign-up"
-        className="btn btn-sm bg-green-700 text-white sm:btn-md"
-      >
-        সাইন আপ
-      </Link>
-    </div>
+  <Link
+    href="/sign-up"
+    className="btn btn-sm bg-green-700 text-white sm:btn-md"
+  >
+    সাইন আপ
+  </Link>
+</div>
+
   </div>
 
   <Navlinks />
